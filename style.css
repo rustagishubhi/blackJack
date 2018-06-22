@@ -1,0 +1,25 @@
+body{
+	background-color: #634511;
+	text-align: center;
+	margin: 2%;
+}
+
+h1{
+	color: #ffffff;
+	margin-top: 20%;
+	margin-bottom: 10%;
+}
+
+p{
+	color: #634511;
+	font-weight: bold;
+}
+
+button{
+	border-radius: 5%;
+	color: #ffffff;
+	background-color: #634511;
+	margin: 2%;
+	padding: 2%;
+	border: 2% solid #634522;
+}
