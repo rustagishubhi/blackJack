@@ -24,6 +24,7 @@ playerCards = [];
 dealerScore = 0;
 playerScore = 0;
 deck = [];
+draw = false;
 
 function createDeck() {
   let deck = [];
@@ -124,7 +125,11 @@ function checkForEndOfGame() {
 
     if (playerScore > dealerScore) {
       playerWon = true;
-    } else {
+    } else if (playerScore < dealerScore) {
+      playerWon = false;
+    }
+    else {
+      draw = true;
       playerWon = false;
     }
   }
@@ -158,10 +163,12 @@ function showStatus() {
     '(score: ' + playerScore + ')\n\n';
 
   if (gameOver) {
-    if (playerWon) {
+    if (playerWon == true && draw == false) {
       textArea.innerText += "YOU WIN!";
-    } else {
+    } else if (playerWon == false && draw == false) {
       textArea.innerText += "DEALER WINS";
+    } else if (draw == true) {
+      textArea.innerText += "DRAW!!!";
     }
     newGameButton.style.display = 'inline';
     hitButton.style.display = 'none';
@@ -178,6 +185,7 @@ newGameButton.addEventListener('click', function() {
   gameStarted = true;
   gameOver = false;
   playerWon = false;
+  draw = false;
 
   deck = createDeck();
   shuffleDeck(deck);
